@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kalkulator Sederhana</title>
+ 
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" class="display" id="display" readonly>
+        <div class="buttons">
+            <table>
+                <tr>
+                    <td>
+                        <button class="calculator-button" onclick="clearDisplay()">Hapus</button>
+                        <button class="calculator-button" onclick="addToDisplay('%')">%</button>
+                        <button class="calculator-button" onclick="addToDisplay('/')">/</button></td>
+                </tr>
+                <tr>
+                    <td>
+                        <button class="calculator-button" onclick="addToDisplay('7')">7</button>
+                        <button class="calculator-button" onclick="addToDisplay('8')">8</button>
+                        <button class="calculator-button" onclick="addToDisplay('9')">9</button>
+                        <button class="calculator-button" onclick="addToDisplay('*')">*</button></td>
+                </tr>
+                <tr>
+                    <td>
+                        <button class="calculator-button" onclick="addToDisplay('4')">4</button>
+                        <button class="calculator-button" onclick="addToDisplay('5')">5</button>
+                        <button class="calculator-button" onclick="addToDisplay('6')">6</button>
+                        <button class="calculator-button" onclick="addToDisplay('-')">-</button></td>
+                </tr>
+                <tr>
+                    <td>
+                        <button class="calculator-button" onclick="addToDisplay('1')">1</button>
+                        <button class="calculator-button" onclick="addToDisplay('2')">2</button>
+                        <button class="calculator-button" onclick="addToDisplay('3')">3</button>
+                        <button class="calculator-button" onclick="addToDisplay('+')">+</button></td>
+                </tr>
+                <tr>
+                    <td>
+                        <button class="calculator-button" onclick="addToDisplay('0')">0</button>
+                        <button class="calculator-button" onclick="addToDisplay('.')">.</button>
+                        <button class="calculator-button" onclick="calculate()">=</button></td>
+                </tr>
+        </div>
+    </div>
+
+    <script>
+        let displayValue = '';
+
+        function addToDisplay(value) {
+            displayValue += value;
+            document.getElementById('display').value = displayValue;
+        }
+
+        function clearDisplay() {
+            displayValue = '';
+            document.getElementById('display').value = displayValue;
+        }
+
+        function calculate() {
+            try {
+                displayValue = eval(displayValue);
+                document.getElementById('display').value = displayValue;
+            } catch (error) {
+                document.getElementById('display').value = 'Error';
+            }
+        }
+    </script>
+</body>
+</html>
